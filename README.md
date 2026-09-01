@@ -9,7 +9,7 @@
 
 ![Executive dashboard](outputs/figures/09_executive_dashboard.png)
 
-**Interactive version:** open [`Cyclistic_Interactive_Dashboard.html`](Cyclistic_Interactive_Dashboard.html). It is fully self-contained, so all charts are embedded and render without external asset paths.
+**Interactive version:** open [`dashboard/index.html`](dashboard/index.html). It is fully self-contained, so all charts are embedded and render without external asset paths.
 
 ## Project at a glance
 
@@ -193,10 +193,8 @@ TESTABLE MARKETING ACTIONS
 cyclistic_capstone_portfolio/
 ├── README.md
 ├── Cyclistic_Capstone_Portfolio_Report.pdf
-├── Cyclistic_Interactive_Dashboard.html
 ├── requirements.txt
 ├── data/
-│   ├── README.md
 │   └── core_source_manifest.csv
 ├── notebooks/
 │   └── cyclistic_case_study.ipynb
@@ -204,11 +202,12 @@ cyclistic_capstone_portfolio/
 │   ├── analysis_pipeline.py
 │   ├── visual_refresh.py
 │   ├── dashboard_builder.py
+│   ├── dashboard_design.py
+│   ├── report_builder.py
 │   ├── report_v2.html
 │   └── report_cover.py
 ├── dashboard/
-│   ├── index.html
-│   └── template.html
+│   └── index.html
 ├── sql/
 │   └── analysis_queries.sql
 ├── docs/
@@ -219,8 +218,8 @@ cyclistic_capstone_portfolio/
 │   ├── visual_identity.md
 │   └── interview_guide.md
 └── outputs/
-    ├── figures/
-    └── summary_tables/
+    ├── figures/          # Portfolio visuals used throughout this README
+    └── summary_tables/   # Reusable CSV aggregates and quality audit
 ```
 
 ---

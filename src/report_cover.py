@@ -6,7 +6,7 @@ from matplotlib.path import Path as MPath
 import matplotlib as mpl
 from pathlib import Path as FSPath
 mpl.rcParams['font.family']='Inter'
-F=FSPath('/mnt/data/cyclistic_capstone_portfolio/outputs/figures')
+F=FSPath(__file__).resolve().parents[1] / 'outputs' / 'figures'
 MID='#06121E'; DEEP='#0B3150'; WHITE='#F8FBFF'; TEAL='#23D6C5'; MEM='#4DA3FF'; CAS='#FF735D'; PUR='#8E72FF'; MUT='#9BB0C2'; GOLD='#FFCE6A'
 fig=plt.figure(figsize=(14.14,10),dpi=180,facecolor=MID)
 ax=fig.add_axes([0,0,1,1]); arr=np.vstack([np.linspace(0,1,800)]*2); cmap=LinearSegmentedColormap.from_list('g',[MID,DEEP]); ax.imshow(arr,aspect='auto',cmap=cmap,extent=[0,1,0,1]); ax.axis('off')

@@ -9,7 +9,7 @@ from matplotlib.path import Path as MplPath
 from matplotlib.colors import LinearSegmentedColormap
 import matplotlib.patheffects as pe
 
-ROOT = Path('/mnt/data/cyclistic_capstone_portfolio')
+ROOT = Path(__file__).resolve().parents[1]
 T = ROOT/'outputs'/'summary_tables'
 F = ROOT/'outputs'/'figures'
 F.mkdir(parents=True, exist_ok=True)
