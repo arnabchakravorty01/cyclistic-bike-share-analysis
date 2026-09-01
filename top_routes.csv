@@ -1,0 +1,101 @@
+member_code,start_station_name,end_station_name,rides,member_casual
+0,Canal St & Adams St,Michigan Ave & Washington St,3538,member
+0,Michigan Ave & Washington St,Clinton St & Washington Blvd,2777,member
+0,Columbus Dr & Randolph St,Clinton St & Washington Blvd,2640,member
+0,Michigan Ave & Washington St,Canal St & Adams St,2537,member
+0,Canal St & Madison St,Michigan Ave & Washington St,2328,member
+0,Clinton St & Washington Blvd,Michigan Ave & Washington St,2232,member
+0,Columbus Dr & Randolph St,State St & Randolph St,2188,member
+0,Wacker Dr & Washington St,Michigan Ave & Washington St,2121,member
+0,Columbus Dr & Randolph St,Canal St & Adams St,2115,member
+0,MLK Jr Dr & 29th St,State St & 33rd St,2005,member
+0,Loomis St & Lexington St,Morgan St & Polk St,1914,member
+0,Clinton St & Madison St,LaSalle St & Jackson Blvd,1829,member
+0,Michigan Ave & Lake St,Canal St & Adams St,1808,member
+0,Morgan St & Polk St,Loomis St & Lexington St,1783,member
+0,Columbus Dr & Randolph St,Canal St & Madison St,1761,member
+0,University Ave & 57th St,Kimbark Ave & 53rd St,1728,member
+0,Clinton St & Madison St,Michigan Ave & Washington St,1693,member
+0,Wabash Ave & Roosevelt Rd,Wabash Ave & 16th St,1684,member
+0,Canal St & Adams St,Larrabee St & Kingsbury St,1675,member
+0,Ellis Ave & 55th St,Ellis Ave & 60th St,1663,member
+0,Canal St & Adams St,Columbus Dr & Randolph St,1660,member
+0,State St & 33rd St,MLK Jr Dr & 29th St,1660,member
+0,Lake Park Ave & 56th St,University Ave & 57th St,1657,member
+0,Ellis Ave & 60th St,Ellis Ave & 55th St,1640,member
+0,University Ave & 57th St,Lake Park Ave & 56th St,1591,member
+0,LaSalle St & Jackson Blvd,Canal St & Madison St,1563,member
+0,Southport Ave & Wellington Ave,Sheffield Ave & Wellington Ave,1563,member
+0,Michigan Ave & Washington St,Canal St & Madison St,1523,member
+0,Michigan Ave & Lake St,Clinton St & Washington Blvd,1512,member
+0,Sheffield Ave & Fullerton Ave,Southport Ave & Wrightwood Ave,1505,member
+0,Larrabee St & Kingsbury St,Canal St & Adams St,1499,member
+0,Kingsbury St & Erie St,Kingsbury St & Kinzie St,1459,member
+0,Clinton St & Washington Blvd,LaSalle St & Jackson Blvd,1453,member
+0,Broadway & Belmont Ave,Wilton Ave & Belmont Ave,1443,member
+0,Ellis Ave & 60th St,University Ave & 57th St,1442,member
+0,Calumet Ave & 33rd St,State St & 33rd St,1422,member
+0,Southport Ave & Wrightwood Ave,Sheffield Ave & Fullerton Ave,1392,member
+0,Sheffield Ave & Fullerton Ave,Greenview Ave & Fullerton Ave,1389,member
+0,Clark St & Wrightwood Ave,Wilton Ave & Diversey Pkwy,1388,member
+0,Ellis Ave & 55th St,Kimbark Ave & 53rd St,1385,member
+0,Wabash Ave & Roosevelt Rd,Michigan Ave & 18th St,1376,member
+0,Kingsbury St & Kinzie St,Canal St & Adams St,1358,member
+0,State St & 33rd St,Calumet Ave & 33rd St,1355,member
+0,Broadway & Berwyn Ave,Clark St & Berwyn Ave,1352,member
+0,Kimbark Ave & 53rd St,University Ave & 57th St,1336,member
+0,Ravenswood Ave & Lawrence Ave,Clark St & Winnemac Ave,1304,member
+0,University Ave & 57th St,Ellis Ave & 60th St,1302,member
+0,Wilton Ave & Diversey Pkwy,Clark St & Wrightwood Ave,1277,member
+0,Kimbark Ave & 53rd St,Ellis Ave & 55th St,1272,member
+0,Clark St & Berwyn Ave,Broadway & Berwyn Ave,1270,member
+1,Lake Shore Dr & Monroe St,Streeter Dr & Grand Ave,9348,casual
+1,Streeter Dr & Grand Ave,Streeter Dr & Grand Ave,8632,casual
+1,Lake Shore Dr & Monroe St,Lake Shore Dr & Monroe St,8052,casual
+1,Michigan Ave & Oak St,Michigan Ave & Oak St,4990,casual
+1,Shedd Aquarium,Streeter Dr & Grand Ave,3527,casual
+1,Streeter Dr & Grand Ave,Millennium Park,3149,casual
+1,Millennium Park,Millennium Park,2920,casual
+1,Streeter Dr & Grand Ave,Lake Shore Dr & Monroe St,2903,casual
+1,Millennium Park,Streeter Dr & Grand Ave,2876,casual
+1,Montrose Harbor,Montrose Harbor,2625,casual
+1,Dusable Harbor,Streeter Dr & Grand Ave,2554,casual
+1,Streeter Dr & Grand Ave,Lake Shore Dr & North Blvd,2509,casual
+1,Streeter Dr & Grand Ave,Michigan Ave & Oak St,2484,casual
+1,Streeter Dr & Grand Ave,Theater on the Lake,2383,casual
+1,Lake Shore Dr & North Blvd,Streeter Dr & Grand Ave,2120,casual
+1,Lake Shore Dr & Monroe St,Shedd Aquarium,2082,casual
+1,Theater on the Lake,Streeter Dr & Grand Ave,2072,casual
+1,Theater on the Lake,Theater on the Lake,1989,casual
+1,Shedd Aquarium,Millennium Park,1930,casual
+1,Michigan Ave & Oak St,Streeter Dr & Grand Ave,1880,casual
+1,Lake Shore Dr & North Blvd,Lake Shore Dr & North Blvd,1827,casual
+1,Michigan Ave & 8th St,Michigan Ave & 8th St,1799,casual
+1,Shedd Aquarium,Shedd Aquarium,1758,casual
+1,Shedd Aquarium,Lake Shore Dr & Monroe St,1704,casual
+1,Adler Planetarium,Streeter Dr & Grand Ave,1589,casual
+1,Streeter Dr & Grand Ave,Shedd Aquarium,1539,casual
+1,Dusable Harbor,Dusable Harbor,1527,casual
+1,Adler Planetarium,Adler Planetarium,1423,casual
+1,Fort Dearborn Dr & 31st St,Fort Dearborn Dr & 31st St,1410,casual
+1,Michigan Ave & Washington St,Michigan Ave & Washington St,1406,casual
+1,Michigan Ave & Washington St,Streeter Dr & Grand Ave,1343,casual
+1,Indiana Ave & Roosevelt Rd,Indiana Ave & Roosevelt Rd,1262,casual
+1,Lake Shore Dr & Monroe St,Lake Shore Dr & North Blvd,1258,casual
+1,Lake Shore Dr & Monroe St,Adler Planetarium,1165,casual
+1,Lake Shore Dr & Monroe St,Dusable Harbor,1146,casual
+1,Lakefront Trail & Bryn Mawr Ave,Lakefront Trail & Bryn Mawr Ave,1081,casual
+1,Michigan Ave & Oak St,Theater on the Lake,1069,casual
+1,Lake Shore Dr & Monroe St,Michigan Ave & Oak St,1061,casual
+1,Lake Shore Dr & Ohio St,Lake Shore Dr & Ohio St,1058,casual
+1,Millennium Park,Lake Shore Dr & Monroe St,1023,casual
+1,Streeter Dr & Grand Ave,Michigan Ave & Washington St,1023,casual
+1,Lake Shore Dr & Monroe St,Millennium Park,1019,casual
+1,Columbus Dr & Randolph St,Streeter Dr & Grand Ave,1006,casual
+1,Michigan Ave & 8th St,Streeter Dr & Grand Ave,1005,casual
+1,Adler Planetarium,Lake Shore Dr & Monroe St,1004,casual
+1,Millennium Park,Shedd Aquarium,998,casual
+1,Adler Planetarium,Millennium Park,964,casual
+1,Dusable Harbor,Lake Shore Dr & Monroe St,959,casual
+1,Buckingham Fountain (Temp),Buckingham Fountain (Temp),958,casual
+1,Lake Shore Dr & Monroe St,Theater on the Lake,949,casual

@@ -1,0 +1,15 @@
+member_casual,weekday_num,rides,avg_duration_min,median_duration_min,weekday
+casual,0,101489,54.499893,25.933332,Monday
+member,0,458780,14.249284,9.666667,Monday
+casual,1,88655,57.41328,24.05,Tuesday
+member,1,497025,14.152592,9.65,Tuesday
+casual,2,89745,60.33407,23.6,Wednesday
+member,2,494277,13.809844,9.7,Wednesday
+casual,3,101372,59.951122,24.0,Thursday
+member,3,486915,13.779792,9.65,Thursday
+casual,4,121141,60.17561,25.133333,Friday
+member,4,456966,13.897477,9.533334,Friday
+casual,5,208056,54.061108,27.733334,Saturday
+member,5,287163,16.302704,10.666667,Saturday
+casual,6,170179,56.1838,27.0,Sunday
+member,6,256241,15.402827,10.533334,Sunday

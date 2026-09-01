@@ -1,0 +1,255 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>Cyclistic Membership Conversion Analysis</title>
+<style>
+@page { size: A4 landscape; margin: 0; }
+* { box-sizing: border-box; }
+html, body { margin:0; padding:0; font-family: Inter, Arial, sans-serif; color:#10243B; background:#F4F8FC; }
+.page { width:297mm; height:210mm; position:relative; overflow:hidden; page-break-after:always; background:#F4F8FC; }
+.page.dark { background:linear-gradient(125deg,#06121E 0%,#09243A 60%,#0C3150 100%); color:#F8FBFF; }
+.pad { padding:14mm 16mm; }
+.eyebrow { font-size:9px; letter-spacing:1.6px; text-transform:uppercase; color:#23D6C5; font-weight:800; }
+h1 { font-size:34px; line-height:1.02; margin:5mm 0 4mm; letter-spacing:-1.1px; }
+h2 { font-size:24px; line-height:1.08; margin:2mm 0 2mm; letter-spacing:-.5px; }
+h3 { font-size:13px; margin:0 0 2mm; }
+p { font-size:10px; line-height:1.48; color:#657A8F; margin:0 0 2.5mm; }
+.dark p { color:#A8BBCB; }
+.muted { color:#657A8F; }
+.dark .muted { color:#93A9BC; }
+.accent { color:#23D6C5; }
+.coral { color:#FF735D; }
+.blue { color:#4DA3FF; }
+.gold { color:#FFCE6A; }
+.grid { display:grid; gap:5mm; }
+.two { grid-template-columns:1fr 1fr; }
+.three { grid-template-columns:repeat(3,1fr); }
+.four { grid-template-columns:repeat(4,1fr); }
+.card { border-radius:5mm; padding:5mm; background:white; border:1px solid #DCE7F0; box-shadow:0 3mm 8mm rgba(9,33,53,.07); }
+.dark .card { background:#0F2A40; border-color:#244B64; box-shadow:0 3mm 8mm rgba(0,0,0,.18); }
+.metric { border-radius:4.5mm; padding:4.2mm 4.5mm; min-height:29mm; position:relative; overflow:hidden; }
+.metric .v { font-size:24px; font-weight:800; line-height:1; margin-bottom:2mm; }
+.metric .l { font-size:8px; font-weight:800; letter-spacing:.65px; text-transform:uppercase; }
+.metric .s { font-size:8px; margin-top:1.6mm; }
+.metric.bluebg { background:linear-gradient(135deg,#163E68,#1E64B9); color:white; }
+.metric.coralbg { background:linear-gradient(135deg,#A63F43,#F06A56); color:white; }
+.metric.tealbg { background:linear-gradient(135deg,#0C6670,#0FB7B2); color:white; }
+.metric.purplebg { background:linear-gradient(135deg,#5741A3,#8E72FF); color:white; }
+.metric.pinkbg { background:linear-gradient(135deg,#9F416F,#E95A9E); color:white; }
+.headerbar { height:12mm; background:#0C263B; border-bottom:1px solid #244A61; display:flex; align-items:center; padding:0 14mm; color:white; }
+.headerbar strong { letter-spacing:.7px; font-size:10px; }
+.headerbar span { margin-left:auto; font-size:7.5px; color:#93A9BC; }
+.route { position:absolute; border:1.8px solid rgba(35,214,197,.20); width:185mm; height:70mm; border-radius:50%; transform:rotate(-11deg); right:-45mm; top:28mm; }
+.route:before,.route:after { content:""; position:absolute; width:7mm; height:7mm; border:1.7px solid rgba(35,214,197,.36); border-radius:50%; background:#071522; }
+.route:before { left:34mm; top:10mm; } .route:after { right:28mm; bottom:8mm; }
+.chart { width:100%; display:block; border-radius:4mm; }
+.chart.darkedge { border:1px solid #23495F; }
+.kicker { display:inline-block; font-size:7px; font-weight:800; padding:1.5mm 2.5mm; border-radius:2.5mm; background:#E8F2FA; color:#35647F; letter-spacing:.4px; }
+.dark .kicker { background:#173A51; color:#9CB8C9; }
+.insight { padding:4mm 4.5mm; border-radius:4mm; background:#F0F7FB; border-left:1.5mm solid #23D6C5; }
+.dark .insight { background:#0D2B42; border-left-color:#23D6C5; }
+.insight strong { display:block; font-size:11px; margin-bottom:1.2mm; }
+.table { width:100%; border-collapse:separate; border-spacing:0; font-size:8.5px; overflow:hidden; border-radius:3mm; border:1px solid #DCE7F0; }
+.table th { background:#10243B; color:white; text-align:left; padding:2.5mm 3mm; font-size:7.5px; letter-spacing:.25px; }
+.table td { padding:2.2mm 3mm; border-top:1px solid #E3EBF2; background:white; color:#10243B; vertical-align:top; }
+.flow { display:grid; grid-template-columns:repeat(5,1fr); gap:3mm; align-items:stretch; }
+.flow .step { border-radius:4mm; padding:4mm; background:white; border:1px solid #DCE7F0; position:relative; min-height:38mm; }
+.flow .step b { display:block; font-size:11px; margin:1mm 0; }
+.flow .step .n { width:7mm; height:7mm; border-radius:50%; background:#23D6C5; color:#071522; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:8px; }
+.flow .step:not(:last-child):after { content:"→"; position:absolute; right:-3.5mm; top:14mm; color:#7D95A7; font-size:15px; z-index:4; }
+.action { min-height:46mm; position:relative; overflow:hidden; }
+.action .num { width:9mm; height:9mm; border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-weight:800; font-size:9px; margin-bottom:3mm; }
+.action h3 { font-size:14px; }
+.action p { font-size:9px; }
+.footer { position:absolute; bottom:6mm; left:16mm; right:16mm; display:flex; justify-content:space-between; color:#7890A4; font-size:7px; }
+.big-num { font-size:38px; font-weight:850; letter-spacing:-1.5px; line-height:1; }
+.callout { border-radius:4mm; background:#FFF0EC; border:1px solid #FFD8CF; padding:4mm; }
+.callout strong { color:#E95C49; font-size:13px; }
+.dark .callout { background:#173246; border-color:#2B536A; }
+.dark .callout strong { color:#FF735D; }
+.hero-img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.overlay { position:absolute; inset:0; background:linear-gradient(90deg,rgba(6,18,30,.10),rgba(6,18,30,.05)); }
+.cover-foot { position:absolute; left:16mm; right:16mm; bottom:9mm; color:#9EB2C3; font-size:8px; display:flex; justify-content:space-between; }
+.small { font-size:8px; }
+.stack { display:flex; flex-direction:column; gap:4mm; }
+</style>
+</head>
+<body>
+
+<!-- 1 COVER -->
+<section class="page dark">
+  <img class="hero-img" src="../outputs/figures/00_report_cover.png"/>
+  <div class="overlay"></div>
+  <div class="cover-foot"><span>Google Data Analytics Capstone · Portfolio Edition</span><span>Analysis window · January-December 2019</span></div>
+</section>
+
+<!-- 2 EXECUTIVE -->
+<section class="page dark">
+  <div class="headerbar"><strong>CYCLISTIC · EXECUTIVE VIEW</strong><span>Customer behavior → membership conversion</span></div>
+  <div class="pad" style="padding-top:8mm">
+    <div class="eyebrow">The decision in one page</div>
+    <h2>Casual riders behave like a different use case - so the marketing should too.</h2>
+    <p style="max-width:230mm">Across 3.82M rides, casual users take longer trips, concentrate more heavily on weekends and summer, and return to the same station far more often. Those patterns point to context-specific acquisition rather than a generic membership message.</p>
+    <img class="chart darkedge" style="margin-top:4mm;height:137mm;object-fit:contain;background:#071522" src="../outputs/figures/09_executive_dashboard.png"/>
+  </div>
+  <div class="footer"><span>Observed behavior, not proven motive</span><span>02</span></div>
+</section>
+
+<!-- 3 ASK PREPARE -->
+<section class="page">
+  <div class="headerbar"><strong>ASK + PREPARE</strong><span>From business question to analysis-ready data</span></div>
+  <div class="pad" style="padding-top:9mm">
+    <div class="eyebrow">01 · Frame the problem</div>
+    <h2>Find the behavioral differences that can guide membership conversion.</h2>
+    <div class="grid three" style="margin-top:6mm">
+      <div class="card"><span class="kicker">BUSINESS TASK</span><h3 style="margin-top:3mm">How do members and casual riders use Cyclistic differently?</h3><p>Translate measurable differences in when, where and how long people ride into marketing opportunities that can be tested.</p></div>
+      <div class="card"><span class="kicker">STAKEHOLDERS</span><h3 style="margin-top:3mm">Marketing director + executive team</h3><p>The output needs to balance analytical rigor with concise, decision-ready communication.</p></div>
+      <div class="card"><span class="kicker">SUCCESS CRITERIA</span><h3 style="margin-top:3mm">Evidence → implication → action</h3><p>Every recommendation must connect directly to observed trip behavior and remain explicit about what the data cannot prove.</p></div>
+    </div>
+    <div class="grid two" style="margin-top:6mm;grid-template-columns:1.25fr .75fr">
+      <div class="card">
+        <div class="eyebrow">Why 2019?</div><h3 style="font-size:16px;margin-top:2mm">The most recent complete 12-month window in the supplied archive.</h3>
+        <p>The uploaded archive spans multiple years but has gaps in later monthly files. Using January-December 2019 avoids missing-month seasonality bias and preserves a complete annual cycle.</p>
+        <table class="table" style="margin-top:4mm"><tr><th>Source</th><th>Rows</th><th>Role</th></tr><tr><td>Q1</td><td>365,069</td><td>Winter / early spring</td></tr><tr><td>Q2</td><td>1,108,163</td><td>Spring / early summer</td></tr><tr><td>Q3</td><td>1,640,718</td><td>Peak summer</td></tr><tr><td>Q4</td><td>704,054</td><td>Fall / winter</td></tr></table>
+      </div>
+      <div class="card">
+        <div class="eyebrow">Data discipline</div><div class="big-num" style="margin-top:4mm">3.82M</div><p><b>trip-level records</b> harmonized across four quarterly files.</p>
+        <div class="insight" style="margin-top:5mm"><strong>Privacy by design</strong><p class="small">Gender and birth-year fields were not used because they are unnecessary for the business question. The analysis is behavioral and aggregate.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer"><span>Ask · Prepare</span><span>03</span></div>
+</section>
+
+<!-- 4 PROCESS -->
+<section class="page">
+  <div class="headerbar"><strong>PROCESS · DATA QUALITY</strong><span>Reproducible cleaning + validation</span></div>
+  <div class="pad" style="padding-top:9mm">
+    <div class="eyebrow">02 · Build trust in the data</div>
+    <h2>The pipeline preserves valid rides instead of blindly deleting anomalies.</h2>
+    <div class="flow" style="margin-top:6mm">
+      <div class="step"><div class="n">1</div><b>Ingest</b><p>Load four quarterly files and preserve raw row counts.</p></div>
+      <div class="step"><div class="n">2</div><b>Harmonize</b><p>Map Q2 schema differences and standardize rider types.</p></div>
+      <div class="step"><div class="n">3</div><b>Validate</b><p>Check IDs, timestamps, stations, categories and duration logic.</p></div>
+      <div class="step"><div class="n">4</div><b>Engineer</b><p>Create duration, month, weekday, hour, season and route features.</p></div>
+      <div class="step"><div class="n">5</div><b>Audit</b><p>Export transparent quality metrics and sensitivity summaries.</p></div>
+    </div>
+    <div class="grid two" style="margin-top:7mm;grid-template-columns:.9fr 1.1fr">
+      <div class="card">
+        <div class="eyebrow">Quality audit</div>
+        <table class="table" style="margin-top:3mm"><tr><th>Check</th><th>Count</th><th>Treatment</th></tr><tr><td>Duplicate ride IDs</td><td>0</td><td>No action needed</td></tr><tr><td>Invalid timestamps</td><td>0</td><td>No action needed</td></tr><tr><td>Missing station names</td><td>0</td><td>No action needed</td></tr><tr><td>Non-positive calculated durations</td><td>13</td><td>Recovered from source duration</td></tr><tr><td>Rides &gt;24 hours</td><td>1,849</td><td>Retained for volume; flagged for duration analysis</td></tr></table>
+      </div>
+      <div class="stack">
+        <div class="callout"><strong>13 rides looked impossible. They were not.</strong><p style="margin-top:2mm">On 3 November 2019, the daylight-saving fallback makes local clock subtraction produce negative durations for 13 records. The source <code>tripduration</code> remains positive, so those rides are recovered rather than discarded.</p></div>
+        <div class="card"><h3>Why median duration is the headline KPI</h3><p>1,849 rides exceed 24 hours. They are legitimate volume observations but can heavily distort the mean, so median ride duration is the primary comparison and capped-duration sensitivity is retained separately.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer"><span>Process</span><span>04</span></div>
+</section>
+
+<!-- 5 BEHAVIOR -->
+<section class="page">
+  <div class="headerbar"><strong>ANALYZE · BEHAVIOR GAP</strong><span>Duration + day-of-week context</span></div>
+  <div class="pad" style="padding-top:8mm">
+    <div class="eyebrow">03 · Two signals immediately separate the segments</div>
+    <h2>Casual riders stay out longer and ride far more often on weekends.</h2>
+    <div class="grid two" style="margin-top:5mm">
+      <div class="card"><img class="chart" src="../outputs/figures/02_median_duration.png"/></div>
+      <div class="card"><img class="chart" src="../outputs/figures/03_weekend_share.png"/></div>
+    </div>
+    <div class="grid two" style="margin-top:5mm">
+      <div class="insight"><strong>2.6× longer median ride</strong><p>Casual median duration is 25.8 minutes versus 9.8 minutes for members. The gap persists despite outlier controls.</p></div>
+      <div class="insight"><strong>2.3× higher weekend concentration</strong><p>43.0% of casual trips occur on weekends versus 18.5% for members. Saturday is the casual segment's peak weekday.</p></div>
+    </div>
+  </div>
+  <div class="footer"><span>Analyze</span><span>05</span></div>
+</section>
+
+<!-- 6 TIME -->
+<section class="page dark">
+  <div class="headerbar"><strong>ANALYZE · TIME + SEASONALITY</strong><span>When the opportunity appears</span></div>
+  <div class="pad" style="padding-top:8mm">
+    <div class="eyebrow">04 · Demand timing</div>
+    <h2>Member use looks recurring. Casual use looks seasonal and experience-led.</h2>
+    <div class="grid two" style="margin-top:5mm">
+      <div class="card" style="padding:2mm"><img class="chart" src="../outputs/figures/05_hourly_profile.png"/></div>
+      <div class="card" style="padding:2mm"><img class="chart" src="../outputs/figures/04_monthly_usage.png"/></div>
+    </div>
+    <div class="grid two" style="margin-top:5mm">
+      <div class="insight"><strong class="blue">58.5% of member weekday rides</strong><p>start during the defined 7-9am and 4-6pm windows, versus 37.4% for casual riders. This is consistent with recurring weekday transport - not proof of trip purpose.</p></div>
+      <div class="insight"><strong class="coral">56.0% of casual rides</strong><p>occur in June-August, compared with 38.5% of member rides. Summer is the most obvious acquisition window.</p></div>
+    </div>
+  </div>
+  <div class="footer"><span>Analyze</span><span>06</span></div>
+</section>
+
+<!-- 7 LOCATION -->
+<section class="page">
+  <div class="headerbar"><strong>ANALYZE · ROUTES + LOCATION</strong><span>Where conversion tests can be concentrated</span></div>
+  <div class="pad" style="padding-top:8mm">
+    <div class="eyebrow">05 · Geography and route shape</div>
+    <h2>Round-trip behavior and destination hotspots reinforce the leisure-use pattern.</h2>
+    <div class="grid two" style="margin-top:5mm;grid-template-columns:.8fr 1.2fr">
+      <div class="card"><img class="chart" src="../outputs/figures/06_same_station_share.png"/></div>
+      <div class="card" style="background:#071522;padding:2mm"><img class="chart" src="../outputs/figures/07_casual_hotspots.png"/></div>
+    </div>
+    <div class="grid two" style="margin-top:5mm">
+      <div class="insight"><strong>7.3× higher same-station rate</strong><p>11.9% of casual rides return to the starting station, compared with 1.6% of member rides.</p></div>
+      <div class="insight"><strong>High-casual test markets</strong><p>Lake Shore Dr & Monroe St, Streeter Dr & Grand Ave, Shedd Aquarium, Field Museum and Dusable Harbor each show casual shares above 70% in this dataset.</p></div>
+    </div>
+  </div>
+  <div class="footer"><span>Analyze · Share</span><span>07</span></div>
+</section>
+
+<!-- 8 ACT -->
+<section class="page dark">
+  <div class="headerbar"><strong>ACT · MARKETING PLAYBOOK</strong><span>Turn insights into controlled experiments</span></div>
+  <div class="pad" style="padding-top:9mm">
+    <div class="eyebrow">06 · Recommendations</div>
+    <h2>Three moves - each tied to an observed behavior and a measurable test.</h2>
+    <div class="grid three" style="margin-top:7mm">
+      <div class="card action"><div class="num" style="background:#4DA3FF">01</div><h3>Geo-target high-casual stations</h3><p>Prioritize lakefront, museum and destination stations where casual demand is already concentrated. Test QR prompts, in-app messaging and localized paid social.</p><span class="kicker">PRIMARY KPI · conversion rate</span></div>
+      <div class="card action"><div class="num" style="background:#23D6C5">02</div><h3>Time campaigns to casual demand</h3><p>Concentrate acquisition around weekends, summer, and midday/afternoon periods instead of mirroring member commute patterns.</p><span class="kicker">PRIMARY KPI · incremental member starts</span></div>
+      <div class="card action"><div class="num" style="background:#8E72FF">03</div><h3>Segment the value proposition</h3><p>Test leisure-oriented membership value against convenience/regular-use messaging. Match creative to the behavioral context.</p><span class="kicker">PRIMARY KPI · lift by segment</span></div>
+    </div>
+    <div class="card" style="margin-top:7mm">
+      <div class="eyebrow">Recommended test design</div>
+      <table class="table" style="margin-top:3mm"><tr><th>Segment / context</th><th>Treatment hypothesis</th><th>Measurement</th></tr><tr><td>Weekend · high-casual station</td><td>Leisure value + conversion incentive</td><td>Membership conversion rate</td></tr><tr><td>Weekday · commute-time casual</td><td>Recurring-use convenience + membership economics</td><td>Incremental conversion lift</td></tr><tr><td>Control</td><td>Business-as-usual / generic message</td><td>Baseline conversion</td></tr></table>
+    </div>
+  </div>
+  <div class="footer"><span>Act</span><span>08</span></div>
+</section>
+
+<!-- 9 LIMITS -->
+<section class="page">
+  <div class="headerbar"><strong>LIMITATIONS + NEXT STEP</strong><span>What this project can - and cannot - claim</span></div>
+  <div class="pad" style="padding-top:9mm">
+    <div class="eyebrow">Analytical maturity</div>
+    <h2>Strong descriptive evidence. No invented causality.</h2>
+    <div class="grid two" style="margin-top:7mm;grid-template-columns:1.05fr .95fr">
+      <div class="card">
+        <h3 style="font-size:16px">Limitations</h3>
+        <p><b>Historical window:</b> 2019 behavior should be refreshed on a complete recent 12-month window before operational decisions.</p>
+        <p><b>Trip-level data:</b> repeat casual riders and eventual membership conversions cannot be identified.</p>
+        <p><b>Missing causal drivers:</b> no campaign exposure, weather, events, pricing sensitivity or explicit trip-purpose fields are available.</p>
+        <p><b>Interpretation:</b> timing and station patterns support targeting hypotheses, but they do not prove intent.</p>
+      </div>
+      <div class="stack">
+        <div class="card"><span class="kicker">NEXT ANALYTICAL ROADMAP</span><h3 style="font-size:15px;margin-top:3mm">Move from behavioral segmentation to incremental lift.</h3><p>1. Refresh with a complete recent year.<br/>2. Connect privacy-safe campaign exposure and conversion outcomes.<br/>3. Run controlled A/B tests by station/time segment.<br/>4. Estimate incremental members and cost per incremental member.</p></div>
+        <div class="callout"><strong>Portfolio signal</strong><p style="margin-top:2mm">The value of this project is not the number of charts. It is the reproducible workflow, explicit assumptions, data-quality judgment, and ability to translate analysis into a testable business decision.</p></div>
+      </div>
+    </div>
+    <div class="grid four" style="margin-top:7mm">
+      <div class="metric bluebg"><div class="v">Python</div><div class="l">Pandas · NumPy</div><div class="s">Harmonization + feature engineering</div></div>
+      <div class="metric tealbg"><div class="v">SQL</div><div class="l">Business queries</div><div class="s">Aggregations + validation</div></div>
+      <div class="metric purplebg"><div class="v">BI</div><div class="l">Executive storytelling</div><div class="s">Dashboard-ready outputs</div></div>
+      <div class="metric coralbg"><div class="v">GitHub</div><div class="l">Reproducibility</div><div class="s">Notebook + docs + code</div></div>
+    </div>
+  </div>
+  <div class="footer"><span>Cyclistic Membership Conversion Analysis</span><span>09</span></div>
+</section>
+
+</body>
+</html>

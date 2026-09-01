@@ -1,0 +1,11 @@
+check,count,treatment
+Raw trip records,3818004,Four quarterly 2019 Divvy trip files
+Duplicate ride IDs,0,None detected
+Invalid timestamps,0,None detected
+Calculated durations <= 0,13,13 daylight-saving fallback cases; recovered using source tripduration
+Duration fallback to source field,13,Used for DST-affected rides
+Missing start station names,0,None detected
+Missing end station names,0,None detected
+Missing rider type,0,None detected
+Unmapped rider type,0,None detected
+Rides > 24 hours,1849,Retained for volume counts; flagged as duration outliers

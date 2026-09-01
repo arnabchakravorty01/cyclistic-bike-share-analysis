@@ -1,0 +1,9 @@
+member_casual,season_code,rides,avg_duration_min,median_duration_min,season
+casual,0,23670,69.3895,21.05,Winter
+member,0,330880,13.240212,8.283334,Winter
+casual,1,145291,51.25812,27.566668,Spring
+member,1,653088,13.552047,9.433333,Spring
+casual,2,492739,58.85984,26.633333,Summer
+member,2,1130155,15.768911,10.833333,Summer
+casual,3,218937,55.356586,23.25,Fall
+member,3,823244,13.401961,9.466666,Fall
